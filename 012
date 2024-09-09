@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미용실 고객 맞춤형 메시지 생성기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #message {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>미용실 고객 맞춤형 메시지 생성기</h1>
+        <input type="text" id="customerName" placeholder="고객 이름">
+        <input type="text" id="visitDate" placeholder="방문 날짜 (예: 3월 15일)">
+        <input type="text" id="treatmentName" placeholder="시술명">
+        <input type="text" id="salonName" placeholder="미용실 이름">
+        <button onclick="generateMessage()">메시지 생성</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function generateMessage() {
+            const customerName = document.getElementById('customerName').value;
+            const visitDate = document.getElementById('visitDate').value;
+            const treatmentName = document.getElementById('treatmentName').value;
+            const salonName = document.getElementById('salonName').value;
+
+            const message = `${customerName}님, 안녕하세요.
+
+지난 ${visitDate}에 저희 미용실을 방문해 주신 지 한 달이 지났네요. ${customerName}님의 관심에 감사드립니다.
+
+${customerName}님, 지난번 ${treatmentName} 시술 후 머리 상태는 어떠신가요? 혹시 불편한 점이나 궁금한 점이 있으셨다면 말씀해 주세요. 저희가 도와드릴 수 있는 부분이 있다면 최선을 다해 조언 드리겠습니다.
+
+헤어 관리에 대해 궁금하신 점이 있으시면 언제든 문의해 주세요. 일상에서 쉽게 할 수 있는 관리 방법부터 전문적인 케어 팁까지, ${customerName}님께 도움이 될 만한 정보를 나눠드릴 수 있습니다.
+
+${customerName}님의 헤어 건강을 위해 정기적인 관리를 추천 드립니다. 다음 관리 시기가 다가오고 있어 연락 드렸습니다. 시간이 되실 때 방문해 주시면 감사하겠습니다.
+
+항상 건강하시길 바랍니다, ${customerName}님. 
+
+감사합니다.
+${salonName} 드림`;
+
+            document.getElementById('message').textContent = message;
+        }
+    </script>
+</body>
+</html>
